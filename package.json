@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": { // Specify node & npm versions for Heroku
+  "engines": {
     "node": "8.4.0",
     "npm": "5.3.0"
   },
   "scripts": {
-    "start": "node index.js" // Heroku looks for the "start" script
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
