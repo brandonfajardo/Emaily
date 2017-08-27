@@ -16,3 +16,5 @@ module.exports = (app) => {
         res.send(req.user)
     })
 }
+
+// auth/google --> auth/google/callback --> strategy --> serialize/deserialize
