@@ -7,10 +7,12 @@ module.exports = (app) => {
 
     app.get('/api/logout', (req, res) => {
         req.logout()
-        res.send("LOGOUT")
+        res.redirect('/')
     })
 
-    app.get('/auth/google/callback', passport.authenticate('google')); // turn code into profile
+    app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
+        res.redirect('/surveys')
+    });
 
     app.get('/api/currentUser', (req, res) => {
         res.send(req.user)
