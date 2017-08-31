@@ -18,6 +18,16 @@ app.use(passport.session())
 require('./routes/authRoutes')(app)
 require('./routes/billingRoutes')(app)
 
+if (process.env.NODE_ENV === 'production'){
+    // look here first 
+    app.use(express.static('client/build'))
+    // then here 
+    const path = require('path')
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve__dirname, 'client', 'build', 'index.html')
+    })
+}
+
 const PORT = process.env.PORT || 5000 // process.env.PORT is for production... 5000 is for dev
 app.listen(PORT, () => {
     console.log('Express server is running')
